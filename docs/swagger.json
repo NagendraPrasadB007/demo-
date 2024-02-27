@@ -1,0 +1,3319 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a  Demo Template API with Swagger documentation",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:3030",
+    "basePath": "/pickup/v1",
+    "paths": {
+        "/addressdetails/": {
+            "post": {
+                "description": "create a new address  for a customer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Addressdetails"
+                ],
+                "summary": "Create a new address for a customer",
+                "parameters": [
+                    {
+                        "description": "Create address request",
+                        "name": "createAddress",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.createAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "address created",
+                        "schema": {
+                            "$ref": "#/definitions/handler.AddressdetailsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addressdetails/{addressid}": {
+            "put": {
+                "description": "update a address's based on addressid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Addressdetails"
+                ],
+                "summary": "Update a address",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "update address",
+                        "name": "addressid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "updateAddressDetails",
+                        "name": "updateAddressDetails",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.updateAddressDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category updated",
+                        "schema": {
+                            "$ref": "#/definitions/handler.AddressdetailsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete a address based on addressid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Addressdetails"
+                ],
+                "summary": "Delete a address",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "addressid",
+                        "name": "addressid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address deleted succesfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addressdetails/{customerid}": {
+            "get": {
+                "description": "get a address by customerid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Addressdetails"
+                ],
+                "summary": "Get a address",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Customerid ID",
+                        "name": "customerid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.AddressdetailsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addresstypelist/": {
+            "get": {
+                "description": "Get a Addresstypelist",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Common"
+                ],
+                "summary": "Get a Addresstypelist",
+                "responses": {
+                    "200": {
+                        "description": "Addresstype list retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Addresstype"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/cancel/{pickuprequestid}": {
+            "put": {
+                "description": "cancel a pickup request based on pickuprequestid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickuprequest"
+                ],
+                "summary": "cancel a pickup request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "cancel pickuprequest",
+                        "name": "pickuprequestid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pickuprequest Cancelled successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/Assigned/{facilityid}": {
+            "get": {
+                "description": "Get the Assigned pickuprequest based on facilityid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the Assigned pickuprequest based on facilityid",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Pickupfacilityid",
+                        "name": "facilityid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/Unassigned/{facilityid}": {
+            "get": {
+                "description": "Get the Unassigned pickuprequest based on facilityid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the Unassigned pickuprequest based on facilityid",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Pickupfacilityid",
+                        "name": "facilityid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Unassigned retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.UnassignedDom"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/count/{facilityid}": {
+            "get": {
+                "description": "Get the count of unassigned , assigned , pickedup , cancelled , total sum based on facilityid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the count of unassigned , assigned , pickedup , cancelled , total sum based on facilityid",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Pickupfacilityid",
+                        "name": "facilityid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "count retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.CountApiResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/customerpickuprequests/{customerid}": {
+            "get": {
+                "description": "Get the pickuprequest raised by the customer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the pickuprequest raised by the custoner",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Customerid",
+                        "name": "customerid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Unassigned retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.PickuprequestBasiccus"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/getpickuprequest/{pickupagentid}": {
+            "get": {
+                "description": "Get the pickuprequest assigned to the pickupagent",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the pickuprequest assigned to the pickupagent",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Pickupagentid",
+                        "name": "pickupagentid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/pickuprequest/{facilityid}": {
+            "get": {
+                "responses": {
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/pickuprequests/{pincode}": {
+            "get": {
+                "description": "Get the pickuprequest based on pincode",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the pickuprequest based on pincode",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Pickuprequestedpincode",
+                        "name": "pincode",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getdetails/{pickuprequestid}": {
+            "get": {
+                "description": "Get a Pickuprequestdetails",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickuprequest"
+                ],
+                "summary": "Get a Pickuprequestdetails",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Pickuprequestid",
+                        "name": "pickuprequestid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.RaisedPickupRequestResponseDom"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/image/": {
+            "post": {
+                "description": "Capture the image of the open pickuprequest",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Capture the image of the open pickuprequest",
+                "parameters": [
+                    {
+                        "description": "uploadimage",
+                        "name": "uploadimage",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.uploadimage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "image captured",
+                        "schema": {
+                            "$ref": "#/definitions/handler.ImageResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/image/{imageid}": {
+            "get": {
+                "description": "Get a image based on imageid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Get a image based on imageid",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Imageid",
+                        "name": "imageid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.ImageResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pickupagentlist/": {
+            "get": {
+                "description": "Get a PickupagentList",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Common"
+                ],
+                "summary": "Get a PickupagentList",
+                "responses": {
+                    "200": {
+                        "description": "Pickupagent list retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Pickupagent"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pickupmain/assigning": {
+            "put": {
+                "description": "Assiging pickuprequest to pickupagent",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickupmain"
+                ],
+                "summary": "Assiging pickuprequest to pickupagent",
+                "parameters": [
+                    {
+                        "description": "Assigning",
+                        "name": "Assigning",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.Assigning"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pickup requests assigned successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pickupmain/bulk": {
+            "post": {
+                "description": "Insert Bulk data into Pickupmain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickupmain"
+                ],
+                "summary": "Insert Bulk data into Pickupmain",
+                "parameters": [
+                    {
+                        "description": "createBulkPickupmain",
+                        "name": "createBulkPickupmain",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.createBulkPickupmain"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pickupmain created",
+                        "schema": {
+                            "$ref": "#/definitions/handler.PickupmainResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pickupmain/singlereq": {
+            "post": {
+                "description": "Insert data into Pickupmain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickupmain"
+                ],
+                "summary": "Insert data into Pickupmain",
+                "parameters": [
+                    {
+                        "description": "createPickupmain",
+                        "name": "createPickupmain",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.createPickupmain"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pickupmain created",
+                        "schema": {
+                            "$ref": "#/definitions/handler.PickupmainResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/pickupscheduleslots/": {
+            "get": {
+                "description": "Get a PickupScheduleslots",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Common"
+                ],
+                "summary": "Get a PickupScheduleslots",
+                "responses": {
+                    "200": {
+                        "description": "Schedule retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/handler.pickupscheduleslotsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/raisepickup/": {
+            "post": {
+                "description": "create a new Pickuprequest",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickuprequest"
+                ],
+                "summary": "Create a new Pickuprequest",
+                "parameters": [
+                    {
+                        "description": "Create address request",
+                        "name": "createAddress",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.createAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "address created",
+                        "schema": {
+                            "$ref": "#/definitions/handler.RaisedPickupRequestResponseInt1"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/remarkslist/": {
+            "get": {
+                "description": "Get a Remarks",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Common"
+                ],
+                "summary": "Get a Remarks",
+                "responses": {
+                    "200": {
+                        "description": "Remarks list retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Remarks"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/updatedetails/{pickuprequestid}": {
+            "put": {
+                "description": "update a pickuprequest based on pickuprequestid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pickuprequest"
+                ],
+                "summary": "Update a Pickuprequest",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "update pickuprequest details",
+                        "name": "pickuprequestid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "updatepickuprequest",
+                        "name": "updatepickuprequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.updatepickuprequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pickuprequest details Updated successfully",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Data not found error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Data conflict error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.errorValidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.Addresstype": {
+            "type": "object",
+            "properties": {
+                "addresstype": {
+                    "type": "string"
+                },
+                "addresstypeid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "domain.Pickupagent": {
+            "type": "object",
+            "properties": {
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupagentname": {
+                    "type": "string"
+                }
+            }
+        },
+        "domain.Remarks": {
+            "type": "object",
+            "properties": {
+                "remarks": {
+                    "type": "string"
+                },
+                "remarksid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.AddressdetailsResponse": {
+            "type": "object",
+            "properties": {
+                "addressid": {
+                    "type": "integer"
+                },
+                "addressline1": {
+                    "type": "string"
+                },
+                "addressline2": {
+                    "type": "string"
+                },
+                "addresstype": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "emailid": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "fromtopickup": {
+                    "type": "string"
+                },
+                "geocode": {
+                    "type": "string"
+                },
+                "isverified": {
+                    "type": "boolean"
+                },
+                "landmark": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "mobilenumber": {
+                    "type": "string"
+                },
+                "pincode": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.Assigning": {
+            "type": "object",
+            "required": [
+                "pickupagentid",
+                "pickuprequestid"
+            ],
+            "properties": {
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.CountApiResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/handler.CountDetails"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.CountDetails": {
+            "type": "object",
+            "properties": {
+                "assigned_count": {
+                    "type": "integer"
+                },
+                "cancelled_count": {
+                    "type": "integer"
+                },
+                "pickedup_count": {
+                    "type": "integer"
+                },
+                "sum": {
+                    "type": "integer"
+                },
+                "unassigned_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.ImageResponse": {
+            "type": "object",
+            "properties": {
+                "filePath": {
+                    "type": "string"
+                },
+                "filename": {
+                    "type": "string"
+                },
+                "imageid": {
+                    "type": "integer"
+                },
+                "mimetype": {
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "handler.PickupmainResponse": {
+            "type": "object",
+            "properties": {
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "createddatetime": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername              null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string"
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "modifieddatetime": {
+                    "type": "string"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.PickuprequestBasiccus": {
+            "type": "object",
+            "properties": {
+                "createddatetime": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "description": "Customername         null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "customername": {
+                    "type": "string"
+                },
+                "modifieddatetime": {
+                    "type": "string"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.RaisedPickupRequestResponseDom": {
+            "type": "object",
+            "properties": {
+                "acknowledgementpod": {
+                    "type": "boolean"
+                },
+                "ackorpodfee": {
+                    "type": "number"
+                },
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "addressrefreceiver": {
+                    "type": "string"
+                },
+                "addressrefreceiveraktaddr": {
+                    "type": "string"
+                },
+                "addressrefsender": {
+                    "type": "string"
+                },
+                "addressrefsenderaltaddr": {
+                    "type": "string"
+                },
+                "addresstype": {
+                    "type": "string"
+                },
+                "articlecontent": {
+                    "type": "string"
+                },
+                "articleid": {
+                    "description": "Pickuprequestid           int       `json:\"pickuprequestid\"`",
+                    "type": "string"
+                },
+                "articleimageid": {
+                    "type": "integer"
+                },
+                "articlepickupcharges": {
+                    "type": "number"
+                },
+                "articlestate": {
+                    "type": "string"
+                },
+                "articletype": {
+                    "type": "string"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "authorisedby": {
+                    "type": "string"
+                },
+                "authorisedon": {
+                    "type": "string"
+                },
+                "barcodenumber": {
+                    "type": "string"
+                },
+                "basetariff": {
+                    "type": "number"
+                },
+                "bkgtransactionid": {
+                    "type": "string"
+                },
+                "bkgtype": {
+                    "type": "string"
+                },
+                "bookingchannel": {
+                    "type": "string"
+                },
+                "cgst": {
+                    "type": "number"
+                },
+                "chargedweight": {
+                    "type": "number"
+                },
+                "contractnumber": {
+                    "description": "Customerid                string    `json:\"customerid\"`",
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "createddatetime": {
+                    "type": "string"
+                },
+                "createdon": {
+                    "type": "string"
+                },
+                "customerdacpickup": {
+                    "description": "Createddatetime           time.Time `json:\"createddatetime\"`\nModifieddatetime          time.Time `json:\"modifieddatetime\"`",
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "description": "Customername              null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "customername": {
+                    "type": "string"
+                },
+                "destinationpin": {
+                    "type": "integer"
+                },
+                "dimensionbreadth": {
+                    "type": "number"
+                },
+                "dimensionheight": {
+                    "type": "number"
+                },
+                "dimensionlength": {
+                    "type": "number"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string"
+                },
+                "domid": {
+                    "description": "DOMESTIC//",
+                    "type": "integer"
+                },
+                "doordeliverycharges": {
+                    "description": "Valueinsurance      float64 `json:\"valueinsurance\"`\nValueforvpcod       float64 `json:\"valueforvpcod\"`",
+                    "type": "number"
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "facilityid": {
+                    "type": "string"
+                },
+                "instructionsrts": {
+                    "type": "string"
+                },
+                "insuranceflag": {
+                    "type": "boolean"
+                },
+                "insurancetype": {
+                    "type": "string"
+                },
+                "iscod": {
+                    "type": "boolean"
+                },
+                "isparcel": {
+                    "type": "boolean"
+                },
+                "isparcelpacking": {
+                    "type": "boolean"
+                },
+                "ispremailing": {
+                    "type": "boolean"
+                },
+                "isprepaid": {
+                    "type": "boolean"
+                },
+                "mailform": {
+                    "type": "string"
+                },
+                "mailservicetypecode": {
+                    "type": "string"
+                },
+                "modeofpayment": {
+                    "type": "string"
+                },
+                "modifieddatetime": {
+                    "type": "string"
+                },
+                "originpin": {
+                    "type": "integer"
+                },
+                "othercharges": {
+                    "type": "number"
+                },
+                "packingfee": {
+                    "type": "number"
+                },
+                "paidamount": {
+                    "type": "number"
+                },
+                "paymentdatetime": {
+                    "description": "Modeofpayment   string    `json:\"modeofpayment\"`\nPaymentstatus   string    `json:\"paymentstatus\"`",
+                    "type": "string"
+                },
+                "paymentid": {
+                    "type": "integer"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "paymenttranid": {
+                    "type": "string"
+                },
+                "paymenttype": {
+                    "description": "PAYMENT\nPaymenttranid   string    `json:\"paymenttranid\"`\nPickuprequestid int       `json:\"pickuprequestid\"`\nArticleid       string    `json:\"articleid\"`",
+                    "type": "string"
+                },
+                "physicalweight": {
+                    "type": "number"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupcharges": {
+                    "type": "number"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickupflag": {
+                    "type": "boolean"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "description": "pickupmain",
+                    "type": "integer"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                },
+                "postage": {
+                    "type": "number"
+                },
+                "prepaymenttype": {
+                    "type": "string"
+                },
+                "registrationfee": {
+                    "type": "number"
+                },
+                "reqipaddress": {
+                    "type": "string"
+                },
+                "sgst": {
+                    "type": "number"
+                },
+                "shape": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tariffid": {
+                    "type": "integer"
+                },
+                "tax": {
+                    "type": "number"
+                },
+                "totalamount": {
+                    "description": "TARIFF//\nPickuprequestid     int     `json:\"pickuprequestid\"`\nArticleid           string  `json:\"articleid\"`",
+                    "type": "number"
+                },
+                "totaltariff": {
+                    "type": "number"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "updatedon": {
+                    "type": "string"
+                },
+                "valueforvpcod": {
+                    "type": "number"
+                },
+                "valueinsurance": {
+                    "type": "number"
+                },
+                "valueofprepayment": {
+                    "type": "number"
+                },
+                "volumetricweight": {
+                    "type": "number"
+                },
+                "vpcodflag": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.RaisedPickupRequestResponseInt1": {
+            "type": "object",
+            "properties": {
+                "acknowledgementpod": {
+                    "type": "boolean"
+                },
+                "ackorpodfee": {
+                    "type": "number"
+                },
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "adcode": {
+                    "type": "string"
+                },
+                "addressrefreceiver": {
+                    "type": "string"
+                },
+                "addressrefreceiveraktaddr": {
+                    "type": "string"
+                },
+                "addressrefsender": {
+                    "type": "string"
+                },
+                "addressrefsenderaltaddr": {
+                    "type": "string"
+                },
+                "addresstype": {
+                    "type": "string"
+                },
+                "articlecontent": {
+                    "type": "string"
+                },
+                "articleid": {
+                    "description": "Pickuprequestid           int       `json:\"pickuprequestid\"`",
+                    "type": "string"
+                },
+                "articleimageid": {
+                    "type": "integer"
+                },
+                "articlepickupcharges": {
+                    "type": "number"
+                },
+                "articlestate": {
+                    "type": "string"
+                },
+                "articletype": {
+                    "type": "string"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "authorisedby": {
+                    "type": "string"
+                },
+                "authorisedon": {
+                    "type": "string"
+                },
+                "barcodenumber": {
+                    "type": "string"
+                },
+                "basetariff": {
+                    "type": "number"
+                },
+                "bkgtransactionid": {
+                    "type": "string"
+                },
+                "bkgtype": {
+                    "type": "string"
+                },
+                "bookingchannel": {
+                    "type": "string"
+                },
+                "cgst": {
+                    "type": "number"
+                },
+                "chargedweight": {
+                    "type": "number"
+                },
+                "consignmentvalue": {
+                    "type": "integer"
+                },
+                "contenttype": {
+                    "type": "string"
+                },
+                "contractnumber": {
+                    "description": "Customerid          string `json:\"customerid\"`",
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "createddatetime": {
+                    "type": "string"
+                },
+                "createdon": {
+                    "type": "string"
+                },
+                "cusbrokeraddress": {
+                    "type": "string"
+                },
+                "cusbrokerlicno": {
+                    "type": "string"
+                },
+                "cusbrokername": {
+                    "type": "string"
+                },
+                "customerdacpickup": {
+                    "description": "Createddatetime           time.Time `json:\"createddatetime\"`\nModifieddatetime          time.Time `json:\"modifieddatetime\"`",
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername              null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "declaration1": {
+                    "type": "string"
+                },
+                "declaration23": {
+                    "type": "string"
+                },
+                "declaration4": {
+                    "type": "string"
+                },
+                "destinationcountrycode": {
+                    "type": "integer"
+                },
+                "dimensionbreadth": {
+                    "type": "number"
+                },
+                "dimensionheight": {
+                    "type": "number"
+                },
+                "dimensionlength": {
+                    "type": "number"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string"
+                },
+                "doordeliverycharges": {
+                    "description": "Valueinsurance      float64 `json:\"valueinsurance\"`\nValueforvpcod       float64 `json:\"valueforvpcod\"`",
+                    "type": "number"
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "facilityid": {
+                    "type": "string"
+                },
+                "gstn": {
+                    "type": "string"
+                },
+                "ibccode": {
+                    "type": "string"
+                },
+                "instructionsrts": {
+                    "type": "string"
+                },
+                "insuranceflag": {
+                    "type": "boolean"
+                },
+                "insurancetype": {
+                    "type": "string"
+                },
+                "intlid": {
+                    "type": "integer"
+                },
+                "iscod": {
+                    "type": "boolean"
+                },
+                "isparcel": {
+                    "type": "boolean"
+                },
+                "isparcelpacking": {
+                    "type": "boolean"
+                },
+                "ispremailing": {
+                    "type": "boolean"
+                },
+                "isprepaid": {
+                    "type": "boolean"
+                },
+                "lut": {
+                    "type": "string"
+                },
+                "mailclass": {
+                    "type": "string"
+                },
+                "mailexporttype": {
+                    "type": "string"
+                },
+                "mailform": {
+                    "type": "string"
+                },
+                "mailservicetypecode": {
+                    "type": "string"
+                },
+                "modeofpayment": {
+                    "type": "string"
+                },
+                "modifieddatetime": {
+                    "type": "string"
+                },
+                "origincountrycode": {
+                    "type": "integer"
+                },
+                "othercharges": {
+                    "type": "number"
+                },
+                "packingfee": {
+                    "type": "number"
+                },
+                "paidamount": {
+                    "type": "number"
+                },
+                "paymentdatetime": {
+                    "description": "Modeofpayment   string    `json:\"modeofpayment\"`\nPaymentstatus   string    `json:\"paymentstatus\"`",
+                    "type": "string"
+                },
+                "paymentid": {
+                    "type": "integer"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "paymenttranid": {
+                    "type": "string"
+                },
+                "paymenttype": {
+                    "description": "PAYMENT\nPaymenttranid   string    `json:\"paymenttranid\"`\nPickuprequestid int       `json:\"pickuprequestid\"`\nArticleid       string    `json:\"articleid\"`",
+                    "type": "string"
+                },
+                "pbefilingtype": {
+                    "type": "string"
+                },
+                "physicalweight": {
+                    "type": "number"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupcharges": {
+                    "type": "number"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickupflag": {
+                    "type": "boolean"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "description": "pickupmain",
+                    "type": "integer"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                },
+                "postage": {
+                    "type": "number"
+                },
+                "prepaymenttype": {
+                    "type": "string"
+                },
+                "registrationfee": {
+                    "type": "number"
+                },
+                "reqipaddress": {
+                    "type": "string"
+                },
+                "selffilingcusbroker": {
+                    "type": "string"
+                },
+                "sgst": {
+                    "type": "number"
+                },
+                "shape": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "subpieces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/handler.SubPieceResponse"
+                    }
+                },
+                "tariffid": {
+                    "type": "integer"
+                },
+                "tax": {
+                    "type": "number"
+                },
+                "totalamount": {
+                    "description": "//SUBPEICE//\n\t\tSubid int `json:\"subid\"`\n\t\t//Intlid                              int       `json:\"intlid\"`\n\t\tIdentifierpieceid                   int       `json:\"identifierpieceid\"`\n\t\tSubpiececatproductcode              string    `json:\"subpiececatproductcode\"`\n\t\tHscode                              string    `json:\"hscode\"`\n\t\tProductcustomstariffhead            string    `json:\"productcustomstariffhead\"`\n\t\tProductdescription                  string    `json:\"productdescription\"`\n\t\tIsocodefororigincountry             string    `json:\"isocodefororigincountry\"`\n\t\tUnitforsubpiecequantity             string    `json:\"unitforsubpiecequantity\"`\n\t\tSubpiecequantitycount               string    `json:\"subpiecequantitycount\"`\n\t\tProducttotalvalueasperinvoice       string    `json:\"producttotalvalueasperinvoice\"`\n\t\tIsocodeforcurrency                  string    `json:\"isocodeforcurrency\"`\n\t\tSubpieceweight                      string    `json:\"subpieceweight\"`\n\t\tSubpieceweightnett                  string    `json:\"subpieceweightnett\"`\n\t\tProductinvoicenumber                string    `json:\"productinvoicenumber\"`\n\t\tProductinvoicedate                  time.Time `json:\"productinvoicedate\"`\n\t\tStatusforecommerce                  string    `json:\"statusforecommerce\"`\n\t\tUrlforecommerceconsignment          string    `json:\"urlforecommerceconsignment\"`\n\t\tEcommercepaymenttransactionid       string    `json:\"ecommercepaymenttransactionid\"`\n\t\tEcommerceskuno                      string    `json:\"ecommerceskuno\"`\n\t\tTaxinvoicenumber                    string    `json:\"taxinvoicenumber\"`\n\t\tTaxinvoicedate                      time.Time `json:\"taxinvoicedate\"`\n\t\tSerialnumberforsubpieceintaxinvoice string    `json:\"serialnumberforsubpieceintaxinvoice\"`\n\t\tValueofsubpieceaspertaxinvoice      float64   `json:\"valueofsubpieceaspertaxinvoice\"`\n\t\tAssessablefreeonboardvalue          float64   `json:\"assessablefreeonboardvalue\"`\n\t\tIsocodeforassessablecurrency        string    `json:\"isocodeforassessablecurrency\"`\n\t\tExchangerateforasblcurr             float64   `json:\"exchangerateforasblcurr\"`\n\t\tAssessableamount                    float64   `json:\"assessableamount\"`\n\t\tRateforexportduty                   float64   `json:\"rateforexportduty\"`\n\t\tExportdutyamount                    float64   `json:\"exportdutyamount\"`\n\t\tRateforcess                         float64   `json:\"rateforcess\"`\n\t\tCessamount                          float64   `json:\"cessamount\"`\n\t\tIgstrate                            float64   `json:\"igstrate\"`\n\t\tIgstamount                          float64   `json:\"igstamount\"`\n\t\tCompensationrate                    float64   `json:\"compensationrate\"`\n\t\tCompensationamount                  float64   `json:\"compensationamount\"`\n\t\tDetailsofletterofundertakingorbond  bool      `json:\"detailsofletterofundertakingorbond\"`\n\t\t//Modeofpayment                       string    `json:\"modeofpayment\"`\n\t\tPaymenttransactionid string `json:\"paymenttransactionid\"`\n\t\t//Createdon                           time.Time `json:\"createdon\"`\n\t\t//Createdby                           string    `json:\"createdby\"`\n\t\t//Updatedon                           time.Time `json:\"updatedon\"`\n\t\t//Updatedby                           string    `json:\"updatedby\"`\n\t\t//Authorisedon                        time.Time `json:\"authorisedon\"`\n\t\t//Authorisedby                        string    `json:\"authorisedby\"`\n\t\t//Facilityid                          string    `json:\"facilityid\"`\n\t\tIpaddress          string `json:\"ipaddress\"`\n\t\tBookingchanneltype string `json:\"bookingchanneltype\"`\n\nTARIFF//\nPickuprequestid     int     `json:\"pickuprequestid\"`\nArticleid           string  `json:\"articleid\"`",
+                    "type": "number"
+                },
+                "totaltariff": {
+                    "type": "number"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "updatedon": {
+                    "type": "string"
+                },
+                "valueforvpcod": {
+                    "type": "number"
+                },
+                "valueinsurance": {
+                    "type": "number"
+                },
+                "valueofprepayment": {
+                    "type": "number"
+                },
+                "volumetricweight": {
+                    "type": "number"
+                },
+                "vpcodflag": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.SubPieceResponse": {
+            "type": "object",
+            "properties": {
+                "assessableamount": {
+                    "type": "number"
+                },
+                "assessablefreeonboardvalue": {
+                    "type": "number"
+                },
+                "authorisedby": {
+                    "type": "string"
+                },
+                "authorisedon": {
+                    "type": "string"
+                },
+                "bookingchanneltype": {
+                    "type": "string"
+                },
+                "cessamount": {
+                    "type": "number"
+                },
+                "compensationamount": {
+                    "type": "number"
+                },
+                "compensationrate": {
+                    "type": "number"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "createdon": {
+                    "type": "string"
+                },
+                "detailsofletterofundertakingorbond": {
+                    "type": "boolean"
+                },
+                "ecommercepaymenttransactionid": {
+                    "type": "string"
+                },
+                "ecommerceskuno": {
+                    "type": "string"
+                },
+                "exchangerateforasblcurr": {
+                    "type": "number"
+                },
+                "exportdutyamount": {
+                    "type": "number"
+                },
+                "facilityid": {
+                    "type": "string"
+                },
+                "hscode": {
+                    "type": "string"
+                },
+                "identifierpieceid": {
+                    "type": "integer"
+                },
+                "igstamount": {
+                    "type": "number"
+                },
+                "igstrate": {
+                    "type": "number"
+                },
+                "intlid": {
+                    "description": "Subid                               int       `json:\"subid\"`",
+                    "type": "integer"
+                },
+                "ipaddress": {
+                    "type": "string"
+                },
+                "isocodeforassessablecurrency": {
+                    "type": "string"
+                },
+                "isocodeforcurrency": {
+                    "type": "string"
+                },
+                "isocodefororigincountry": {
+                    "type": "string"
+                },
+                "modeofpayment": {
+                    "type": "string"
+                },
+                "paymenttransactionid": {
+                    "type": "string"
+                },
+                "productcustomstariffhead": {
+                    "type": "string"
+                },
+                "productdescription": {
+                    "type": "string"
+                },
+                "productinvoicedate": {
+                    "type": "string"
+                },
+                "productinvoicenumber": {
+                    "type": "string"
+                },
+                "producttotalvalueasperinvoice": {
+                    "type": "string"
+                },
+                "rateforcess": {
+                    "type": "number"
+                },
+                "rateforexportduty": {
+                    "type": "number"
+                },
+                "serialnumberforsubpieceintaxinvoice": {
+                    "type": "string"
+                },
+                "statusforecommerce": {
+                    "type": "string"
+                },
+                "subpiececatproductcode": {
+                    "type": "string"
+                },
+                "subpiecequantitycount": {
+                    "type": "string"
+                },
+                "subpieceweight": {
+                    "type": "string"
+                },
+                "subpieceweightnett": {
+                    "type": "string"
+                },
+                "taxinvoicedate": {
+                    "type": "string"
+                },
+                "taxinvoicenumber": {
+                    "type": "string"
+                },
+                "unitforsubpiecequantity": {
+                    "type": "string"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "updatedon": {
+                    "type": "string"
+                },
+                "urlforecommerceconsignment": {
+                    "type": "string"
+                },
+                "valueofsubpieceaspertaxinvoice": {
+                    "type": "number"
+                }
+            }
+        },
+        "handler.UnassignedDom": {
+            "type": "object",
+            "properties": {
+                "customermobilenumber": {
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername         null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "physicalweight": {
+                    "type": "number"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "volumetricweight": {
+                    "type": "number"
+                }
+            }
+        },
+        "handler.createAddress": {
+            "type": "object",
+            "required": [
+                "addressline1",
+                "addressline2",
+                "addresstype",
+                "city",
+                "country",
+                "customerid",
+                "emailid",
+                "firstname",
+                "fromtopickup",
+                "geocode",
+                "isverified",
+                "landmark",
+                "lastname",
+                "mobilenumber",
+                "pincode",
+                "state"
+            ],
+            "properties": {
+                "addressline1": {
+                    "type": "string"
+                },
+                "addressline2": {
+                    "type": "string"
+                },
+                "addresstype": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "emailid": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "fromtopickup": {
+                    "type": "string"
+                },
+                "geocode": {
+                    "type": "string"
+                },
+                "isverified": {
+                    "type": "boolean"
+                },
+                "landmark": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "mobilenumber": {
+                    "type": "string"
+                },
+                "pincode": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.createBulkPickupmain": {
+            "type": "object",
+            "required": [
+                "actualpickupdatetime",
+                "customerid",
+                "customermobilenumber",
+                "customername",
+                "domesticforeignidentifier",
+                "droplocation",
+                "paymentstatus",
+                "pickupaddress",
+                "pickupdroptype",
+                "pickupfacilityid",
+                "pickuplat",
+                "pickuplocation",
+                "pickuplong",
+                "pickuprequestedpincode",
+                "pickupscheduledate",
+                "pickupscheduleslot",
+                "pickupstatus"
+            ],
+            "properties": {
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername              sql.NullString `json:\"customername\" validate:\"required\"`\nCustomername         null.String `json:\"customername\" validate:\"required\"`",
+                    "type": "string"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string",
+                    "enum": [
+                        "domestic",
+                        "international"
+                    ]
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "description": "Pickupstatus              string    `json:\"pickupstatus\" validate:\"omitempty,required\"`",
+                    "type": "string",
+                    "enum": [
+                        "Unassigned",
+                        "Assigned",
+                        "Pickedup",
+                        "Cancelled"
+                    ]
+                }
+            }
+        },
+        "handler.createPickupmain": {
+            "type": "object",
+            "required": [
+                "actualpickupdatetime",
+                "customerid",
+                "customermobilenumber",
+                "customername",
+                "domesticforeignidentifier",
+                "droplocation",
+                "paymentstatus",
+                "pickupaddress",
+                "pickupdroptype",
+                "pickupfacilityid",
+                "pickuplat",
+                "pickuplocation",
+                "pickuplong",
+                "pickuprequestedpincode",
+                "pickupscheduledate",
+                "pickupscheduleslot",
+                "pickupstatus"
+            ],
+            "properties": {
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "description": "Customername         pgtype.Text `json:\"customername\" validate:\"required\"`",
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername              sql.NullString `json:\"customername\" validate:\"required\"`\nCustomername         null.String `json:\"customername\" validate:\"required\"`\nCustomername         pgtype.NullString `json:\"customername\" validate:\"required\"`\nCustomername null.String `json:\"customername\" validate:\"required\"`",
+                    "type": "string"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string"
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.errorValidResponse": {
+            "type": "object",
+            "properties": {
+                "errorno": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "message": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "Error message"
+                    ]
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false
+                }
+            }
+        },
+        "handler.pickupscheduleslotsResponse": {
+            "type": "object",
+            "properties": {
+                "pickupscheduleslotid": {
+                    "type": "integer"
+                },
+                "scheduleslot": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.updateAddressDetails": {
+            "type": "object",
+            "required": [
+                "addressline1",
+                "addressline2",
+                "addresstype",
+                "city",
+                "country",
+                "customerid",
+                "emailid",
+                "firstname",
+                "fromtopickup",
+                "geocode",
+                "isverified",
+                "landmark",
+                "lastname",
+                "mobilenumber",
+                "pincode",
+                "state"
+            ],
+            "properties": {
+                "addressline1": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "addressline2": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "addresstype": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "city": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "country": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "customerid": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "emailid": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "firstname": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "fromtopickup": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "geocode": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "isverified": {
+                    "type": "boolean"
+                },
+                "landmark": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "lastname": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "mobilenumber": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "pincode": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "state": {
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "handler.updatepickuprequest": {
+            "type": "object",
+            "properties": {
+                "acknowledgementpod": {
+                    "type": "boolean"
+                },
+                "ackorpodfee": {
+                    "type": "number"
+                },
+                "actualpickupdatetime": {
+                    "type": "string"
+                },
+                "adcode": {
+                    "type": "string"
+                },
+                "addressrefreceiver": {
+                    "type": "string"
+                },
+                "addressrefreceiveraktaddr": {
+                    "type": "string"
+                },
+                "addressrefsender": {
+                    "type": "string"
+                },
+                "addressrefsenderaltaddr": {
+                    "type": "string"
+                },
+                "addresstype": {
+                    "type": "string"
+                },
+                "articlecontent": {
+                    "type": "string"
+                },
+                "articleid": {
+                    "description": "domestic //",
+                    "type": "string"
+                },
+                "articleimageid": {
+                    "type": "integer"
+                },
+                "articlepickupcharges": {
+                    "type": "number"
+                },
+                "articlestate": {
+                    "type": "string"
+                },
+                "articletype": {
+                    "type": "string"
+                },
+                "assessableamount": {
+                    "type": "number"
+                },
+                "assessablefreeonboardvalue": {
+                    "type": "number"
+                },
+                "assigneddatetime": {
+                    "type": "string"
+                },
+                "authorisedby": {
+                    "type": "string"
+                },
+                "authorisedon": {
+                    "type": "string"
+                },
+                "barcodenumber": {
+                    "type": "string"
+                },
+                "basetariff": {
+                    "type": "number"
+                },
+                "bkgtransactionid": {
+                    "type": "string"
+                },
+                "bkgtype": {
+                    "type": "string"
+                },
+                "bookingchannel": {
+                    "type": "string"
+                },
+                "bookingchanneltype": {
+                    "type": "string"
+                },
+                "cessamount": {
+                    "type": "number"
+                },
+                "cgst": {
+                    "type": "number"
+                },
+                "chargedweight": {
+                    "type": "number"
+                },
+                "compensationamount": {
+                    "type": "number"
+                },
+                "compensationrate": {
+                    "type": "number"
+                },
+                "consignmentvalue": {
+                    "description": "Shape                     string    `json:\"shape\"`\nDimensionlength           float64   `json:\"dimensionlength\"`\nDimensionbreadth          float64   `json:\"dimensionbreadth\"`\nDimensionheight           float64   `json:\"dimensionheight\"`\nVolumetricweight          float64   `json:\"volumetricweight\"`\nChargedweight             float64   `json:\"chargedweight\"`\nMailservicetypecode       string    `json:\"mailservicetypecode\"`\nBkgtype                   string    `json:\"bkgtype\"`\nMailform                  string    `json:\"mailform\"`\nIsprepaid                 bool      `json:\"isprepaid\"`\nPrepaymenttype            string    `json:\"prepaymenttype\"`\nValueofprepayment         float64   `json:\"valueofprepayment\"`\nVpcodflag                 bool      `json:\"vpcodflag\"`\nValueforvpcod             float64   `json:\"valueforvpcod\"`\nInsuranceflag             bool      `json:\"insuranceflag\"`\nInsurancetype             string    `json:\"insurancetype\"`\nValueinsurance            float64   `json:\"valueinsurance\"`\nAcknowledgementpod        bool      `json:\"acknowledgementpod\"`\nInstructionsrts           string    `json:\"instructionsrts\"`\nAddressrefsender          string    `json:\"addressrefsender\"`\nAddressrefreceiver        string    `json:\"addressrefreceiver\"`\nAddressrefsenderaltaddr   string    `json:\"addressrefsenderaltaddr\"`\nAddressrefreceiveraktaddr string    `json:\"addressrefreceiveraktaddr\"`\nBarcodenumber             string    `json:\"barcodenumber\"`\nPickupflag                bool      `json:\"pickupflag\"`\nBasetariff                float64   `json:\"basetariff\"`\nTax                       float64   `json:\"tax\"`\nTotaltariff               float64   `json:\"totaltariff\"`\nModeofpayment             string    `json:\"modeofpayment\"`\nPaymenttranid             string    `json:\"paymenttranid\"`\nStatus                    string    `json:\"status\"`\nCreatedon                 time.Time `json:\"createdon\"`\nCreatedby                 string    `json:\"createdby\"`\nUpdatedon                 time.Time `json:\"updatedon\"`\nUpdatedby                 string    `json:\"updatedby\"`\nAuthorisedon              time.Time `json:\"authorisedon\"`\nAuthorisedby              string    `json:\"authorisedby\"`\nFacilityid                string    `json:\"facilityid\"`\nReqipaddress              string    `json:\"reqipaddress\"`\nBookingchannel            string    `json:\"bookingchannel\"`",
+                    "type": "integer"
+                },
+                "contenttype": {
+                    "type": "string"
+                },
+                "contractnumber": {
+                    "description": "Customerid                string    `json:\"customerid\"`",
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "createddatetime": {
+                    "type": "string"
+                },
+                "createdon": {
+                    "type": "string"
+                },
+                "cusbrokeraddress": {
+                    "type": "string"
+                },
+                "cusbrokerlicno": {
+                    "type": "string"
+                },
+                "cusbrokername": {
+                    "type": "string"
+                },
+                "customerdacpickup": {
+                    "type": "string"
+                },
+                "customerid": {
+                    "type": "string"
+                },
+                "customermobilenumber": {
+                    "type": "string"
+                },
+                "customername": {
+                    "description": "Customername              null.String `json:\"customername\"`",
+                    "type": "string"
+                },
+                "declaration1": {
+                    "type": "string"
+                },
+                "declaration23": {
+                    "type": "string"
+                },
+                "declaration4": {
+                    "type": "string"
+                },
+                "destinationcountrycode": {
+                    "type": "integer"
+                },
+                "destinationpin": {
+                    "type": "integer"
+                },
+                "detailsofletterofundertakingorbond": {
+                    "type": "boolean"
+                },
+                "dimensionbreadth": {
+                    "type": "number"
+                },
+                "dimensionheight": {
+                    "type": "number"
+                },
+                "dimensionlength": {
+                    "type": "number"
+                },
+                "domesticforeignidentifier": {
+                    "type": "string"
+                },
+                "doordeliverycharges": {
+                    "description": "Valueinsurance      float64 `json:\"valueinsurance\"`\nValueforvpcod       float64 `json:\"valueforvpcod\"`",
+                    "type": "number"
+                },
+                "droplocation": {
+                    "type": "string"
+                },
+                "ecommercepaymenttransactionid": {
+                    "type": "string"
+                },
+                "ecommerceskuno": {
+                    "type": "string"
+                },
+                "exchangerateforasblcurr": {
+                    "type": "number"
+                },
+                "exportdutyamount": {
+                    "type": "number"
+                },
+                "facilityid": {
+                    "type": "string"
+                },
+                "gstn": {
+                    "description": "Customerid                string    `json:\"customerid\"`\nContractnumber            string    `json:\"contractnumber\"`",
+                    "type": "string"
+                },
+                "hscode": {
+                    "type": "string"
+                },
+                "ibccode": {
+                    "type": "string"
+                },
+                "identifierpieceid": {
+                    "type": "integer"
+                },
+                "igstamount": {
+                    "type": "number"
+                },
+                "igstrate": {
+                    "type": "number"
+                },
+                "instructionsrts": {
+                    "type": "string"
+                },
+                "insuranceflag": {
+                    "type": "boolean"
+                },
+                "insurancetype": {
+                    "type": "string"
+                },
+                "ipaddress": {
+                    "description": "Createdon                           time.Time `json:\"createdon\"`\nCreatedby                           string    `json:\"createdby\"`\nUpdatedon                           time.Time `json:\"updatedon\"`\nUpdatedby                           string    `json:\"updatedby\"`\nAuthorisedon                        time.Time `json:\"authorisedon\"`\nAuthorisedby                        string    `json:\"authorisedby\"`\nFacilityid                          string    `json:\"facilityid\"`",
+                    "type": "string"
+                },
+                "iscod": {
+                    "type": "boolean"
+                },
+                "isocodeforassessablecurrency": {
+                    "type": "string"
+                },
+                "isocodeforcurrency": {
+                    "type": "string"
+                },
+                "isocodefororigincountry": {
+                    "type": "string"
+                },
+                "isparcel": {
+                    "type": "boolean"
+                },
+                "isparcelpacking": {
+                    "type": "boolean"
+                },
+                "ispremailing": {
+                    "type": "boolean"
+                },
+                "isprepaid": {
+                    "type": "boolean"
+                },
+                "lut": {
+                    "type": "string"
+                },
+                "mailclass": {
+                    "description": "Physicalweight            float64   `json:\"physicalweight\"`",
+                    "type": "string"
+                },
+                "mailexporttype": {
+                    "type": "string"
+                },
+                "mailform": {
+                    "type": "string"
+                },
+                "mailservicetypecode": {
+                    "type": "string"
+                },
+                "modeofpayment": {
+                    "type": "string"
+                },
+                "modifieddatetime": {
+                    "type": "string"
+                },
+                "origincountrycode": {
+                    "description": "INTERNNATIONAL //\nPickuprequestid           int       `json:\"pickuprequestid\"`\nArticleid                 string    `json:\"articleid\"`\nArticlestate              string    `json:\"articlestate\"`\nArticletype               string    `json:\"articletype\"`\nArticlecontent            string    `json:\"articlecontent\"`\nArticleimageid            int       `json:\"articleimageid\"`\nArticlepickupcharges      float64   `json:\"articlepickupcharges\"`\nIspremailing              bool      `json:\"ispremailing\"`\nIsparcelpacking           bool      `json:\"isparcelpacking\"`\nCreateddatetime           time.Time `json:\"createddatetime\"`\nModifieddatetime          time.Time `json:\"modifieddatetime\"`\nCustomerdacpickup         string    `json:\"customerdacpickup\"`\nAddresstype               string    `json:\"addresstype\"`\nBkgtransactionid          string    `json:\"bkgtransactionid\"`",
+                    "type": "integer"
+                },
+                "originpin": {
+                    "type": "integer"
+                },
+                "othercharges": {
+                    "type": "number"
+                },
+                "packingfee": {
+                    "type": "number"
+                },
+                "paidamount": {
+                    "type": "number"
+                },
+                "paymentdatetime": {
+                    "description": "Modeofpayment   string    `json:\"modeofpayment\"`\nPaymentstatus   string    `json:\"paymentstatus\"`",
+                    "type": "string"
+                },
+                "paymentstatus": {
+                    "type": "string"
+                },
+                "paymenttranid": {
+                    "type": "string"
+                },
+                "paymenttransactionid": {
+                    "description": "Modeofpayment                       string    `json:\"modeofpayment\"`",
+                    "type": "string"
+                },
+                "paymenttype": {
+                    "description": "paymentdetails//\nPaymenttranid   string    `json:\"paymenttranid\"`\nPickuprequestid int       `json:\"pickuprequestid\"`\nArticleid       string    `json:\"articleid\"`",
+                    "type": "string"
+                },
+                "pbefilingtype": {
+                    "type": "string"
+                },
+                "physicalweight": {
+                    "type": "number"
+                },
+                "pickupaddress": {
+                    "type": "string"
+                },
+                "pickupagentid": {
+                    "type": "integer"
+                },
+                "pickupcharges": {
+                    "type": "number"
+                },
+                "pickupdroptype": {
+                    "type": "string"
+                },
+                "pickupfacilityid": {
+                    "type": "string"
+                },
+                "pickupflag": {
+                    "type": "boolean"
+                },
+                "pickuplat": {
+                    "type": "string"
+                },
+                "pickuplocation": {
+                    "type": "string"
+                },
+                "pickuplong": {
+                    "type": "string"
+                },
+                "pickuprequestedpincode": {
+                    "type": "string"
+                },
+                "pickupscheduledate": {
+                    "type": "string"
+                },
+                "pickupscheduleslot": {
+                    "type": "string"
+                },
+                "pickupstatus": {
+                    "type": "string"
+                },
+                "postage": {
+                    "type": "number"
+                },
+                "prepaymenttype": {
+                    "type": "string"
+                },
+                "productcustomstariffhead": {
+                    "type": "string"
+                },
+                "productdescription": {
+                    "type": "string"
+                },
+                "productinvoicedate": {
+                    "type": "string"
+                },
+                "productinvoicenumber": {
+                    "type": "string"
+                },
+                "producttotalvalueasperinvoice": {
+                    "type": "string"
+                },
+                "rateforcess": {
+                    "type": "number"
+                },
+                "rateforexportduty": {
+                    "type": "number"
+                },
+                "registrationfee": {
+                    "type": "number"
+                },
+                "reqipaddress": {
+                    "type": "string"
+                },
+                "selffilingcusbroker": {
+                    "type": "string"
+                },
+                "serialnumberforsubpieceintaxinvoice": {
+                    "type": "string"
+                },
+                "sgst": {
+                    "type": "number"
+                },
+                "shape": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "statusforecommerce": {
+                    "type": "string"
+                },
+                "subid": {
+                    "description": "subpiecedetails//\nIntlid                              int       `json:\"intlid\"`\nadding subid",
+                    "type": "integer"
+                },
+                "subpiececatproductcode": {
+                    "type": "string"
+                },
+                "subpiecequantitycount": {
+                    "type": "string"
+                },
+                "subpieceweight": {
+                    "type": "string"
+                },
+                "subpieceweightnett": {
+                    "type": "string"
+                },
+                "tax": {
+                    "type": "number"
+                },
+                "taxinvoicedate": {
+                    "type": "string"
+                },
+                "taxinvoicenumber": {
+                    "type": "string"
+                },
+                "totalamount": {
+                    "description": "tarriffdetails//",
+                    "type": "number"
+                },
+                "totaltariff": {
+                    "type": "number"
+                },
+                "unitforsubpiecequantity": {
+                    "type": "string"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "updatedon": {
+                    "type": "string"
+                },
+                "urlforecommerceconsignment": {
+                    "type": "string"
+                },
+                "valueforvpcod": {
+                    "type": "number"
+                },
+                "valueinsurance": {
+                    "type": "number"
+                },
+                "valueofprepayment": {
+                    "type": "number"
+                },
+                "valueofsubpieceaspertaxinvoice": {
+                    "type": "number"
+                },
+                "volumetricweight": {
+                    "type": "number"
+                },
+                "vpcodflag": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "handler.uploadimage": {
+            "type": "object",
+            "required": [
+                "pickuprequestid"
+            ],
+            "properties": {
+                "filename": {
+                    "description": "`json:\"filename\"`",
+                    "type": "string"
+                },
+                "mimetype": {
+                    "description": "`json:\"mimetype\"`",
+                    "type": "string"
+                },
+                "pickuprequestid": {
+                    "type": "integer"
+                },
+                "size": {
+                    "description": "`json:\"size\"`",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

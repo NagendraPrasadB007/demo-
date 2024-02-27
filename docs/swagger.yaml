@@ -1,0 +1,2387 @@
+basePath: /pickup/v1
+definitions:
+  domain.Addresstype:
+    properties:
+      addresstype:
+        type: string
+      addresstypeid:
+        type: integer
+    type: object
+  domain.Pickupagent:
+    properties:
+      pickupagentid:
+        type: integer
+      pickupagentname:
+        type: string
+    type: object
+  domain.Remarks:
+    properties:
+      remarks:
+        type: string
+      remarksid:
+        type: integer
+    type: object
+  handler.AddressdetailsResponse:
+    properties:
+      addressid:
+        type: integer
+      addressline1:
+        type: string
+      addressline2:
+        type: string
+      addresstype:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      customerid:
+        type: string
+      emailid:
+        type: string
+      firstname:
+        type: string
+      fromtopickup:
+        type: string
+      geocode:
+        type: string
+      isverified:
+        type: boolean
+      landmark:
+        type: string
+      lastname:
+        type: string
+      mobilenumber:
+        type: string
+      pincode:
+        type: string
+      state:
+        type: string
+    type: object
+  handler.Assigning:
+    properties:
+      pickupagentid:
+        type: integer
+      pickuprequestid:
+        type: integer
+    required:
+    - pickupagentid
+    - pickuprequestid
+    type: object
+  handler.CountApiResponse:
+    properties:
+      data:
+        $ref: '#/definitions/handler.CountDetails'
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+  handler.CountDetails:
+    properties:
+      assigned_count:
+        type: integer
+      cancelled_count:
+        type: integer
+      pickedup_count:
+        type: integer
+      sum:
+        type: integer
+      unassigned_count:
+        type: integer
+    type: object
+  handler.ImageResponse:
+    properties:
+      filePath:
+        type: string
+      filename:
+        type: string
+      imageid:
+        type: integer
+      mimetype:
+        type: string
+      pickuprequestid:
+        type: integer
+      size:
+        type: integer
+    type: object
+  handler.PickupmainResponse:
+    properties:
+      actualpickupdatetime:
+        type: string
+      assigneddatetime:
+        type: string
+      createddatetime:
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        type: string
+      customername:
+        description: Customername              null.String `json:"customername"`
+        type: string
+      domesticforeignidentifier:
+        type: string
+      droplocation:
+        type: string
+      modifieddatetime:
+        type: string
+      paymentstatus:
+        type: string
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickuprequestid:
+        type: integer
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+    type: object
+  handler.PickuprequestBasiccus:
+    properties:
+      createddatetime:
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        description: Customername         null.String `json:"customername"`
+        type: string
+      customername:
+        type: string
+      modifieddatetime:
+        type: string
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickuprequestid:
+        type: integer
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+    type: object
+  handler.RaisedPickupRequestResponseDom:
+    properties:
+      acknowledgementpod:
+        type: boolean
+      ackorpodfee:
+        type: number
+      actualpickupdatetime:
+        type: string
+      addressrefreceiver:
+        type: string
+      addressrefreceiveraktaddr:
+        type: string
+      addressrefsender:
+        type: string
+      addressrefsenderaltaddr:
+        type: string
+      addresstype:
+        type: string
+      articlecontent:
+        type: string
+      articleid:
+        description: Pickuprequestid           int       `json:"pickuprequestid"`
+        type: string
+      articleimageid:
+        type: integer
+      articlepickupcharges:
+        type: number
+      articlestate:
+        type: string
+      articletype:
+        type: string
+      assigneddatetime:
+        type: string
+      authorisedby:
+        type: string
+      authorisedon:
+        type: string
+      barcodenumber:
+        type: string
+      basetariff:
+        type: number
+      bkgtransactionid:
+        type: string
+      bkgtype:
+        type: string
+      bookingchannel:
+        type: string
+      cgst:
+        type: number
+      chargedweight:
+        type: number
+      contractnumber:
+        description: Customerid                string    `json:"customerid"`
+        type: string
+      createdby:
+        type: string
+      createddatetime:
+        type: string
+      createdon:
+        type: string
+      customerdacpickup:
+        description: |-
+          Createddatetime           time.Time `json:"createddatetime"`
+          Modifieddatetime          time.Time `json:"modifieddatetime"`
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        description: Customername              null.String `json:"customername"`
+        type: string
+      customername:
+        type: string
+      destinationpin:
+        type: integer
+      dimensionbreadth:
+        type: number
+      dimensionheight:
+        type: number
+      dimensionlength:
+        type: number
+      domesticforeignidentifier:
+        type: string
+      domid:
+        description: DOMESTIC//
+        type: integer
+      doordeliverycharges:
+        description: |-
+          Valueinsurance      float64 `json:"valueinsurance"`
+          Valueforvpcod       float64 `json:"valueforvpcod"`
+        type: number
+      droplocation:
+        type: string
+      facilityid:
+        type: string
+      instructionsrts:
+        type: string
+      insuranceflag:
+        type: boolean
+      insurancetype:
+        type: string
+      iscod:
+        type: boolean
+      isparcel:
+        type: boolean
+      isparcelpacking:
+        type: boolean
+      ispremailing:
+        type: boolean
+      isprepaid:
+        type: boolean
+      mailform:
+        type: string
+      mailservicetypecode:
+        type: string
+      modeofpayment:
+        type: string
+      modifieddatetime:
+        type: string
+      originpin:
+        type: integer
+      othercharges:
+        type: number
+      packingfee:
+        type: number
+      paidamount:
+        type: number
+      paymentdatetime:
+        description: |-
+          Modeofpayment   string    `json:"modeofpayment"`
+          Paymentstatus   string    `json:"paymentstatus"`
+        type: string
+      paymentid:
+        type: integer
+      paymentstatus:
+        type: string
+      paymenttranid:
+        type: string
+      paymenttype:
+        description: |-
+          PAYMENT
+          Paymenttranid   string    `json:"paymenttranid"`
+          Pickuprequestid int       `json:"pickuprequestid"`
+          Articleid       string    `json:"articleid"`
+        type: string
+      physicalweight:
+        type: number
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupcharges:
+        type: number
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickupflag:
+        type: boolean
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickuprequestid:
+        description: pickupmain
+        type: integer
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+      postage:
+        type: number
+      prepaymenttype:
+        type: string
+      registrationfee:
+        type: number
+      reqipaddress:
+        type: string
+      sgst:
+        type: number
+      shape:
+        type: string
+      status:
+        type: string
+      tariffid:
+        type: integer
+      tax:
+        type: number
+      totalamount:
+        description: |-
+          TARIFF//
+          Pickuprequestid     int     `json:"pickuprequestid"`
+          Articleid           string  `json:"articleid"`
+        type: number
+      totaltariff:
+        type: number
+      updatedby:
+        type: string
+      updatedon:
+        type: string
+      valueforvpcod:
+        type: number
+      valueinsurance:
+        type: number
+      valueofprepayment:
+        type: number
+      volumetricweight:
+        type: number
+      vpcodflag:
+        type: boolean
+    type: object
+  handler.RaisedPickupRequestResponseInt1:
+    properties:
+      acknowledgementpod:
+        type: boolean
+      ackorpodfee:
+        type: number
+      actualpickupdatetime:
+        type: string
+      adcode:
+        type: string
+      addressrefreceiver:
+        type: string
+      addressrefreceiveraktaddr:
+        type: string
+      addressrefsender:
+        type: string
+      addressrefsenderaltaddr:
+        type: string
+      addresstype:
+        type: string
+      articlecontent:
+        type: string
+      articleid:
+        description: Pickuprequestid           int       `json:"pickuprequestid"`
+        type: string
+      articleimageid:
+        type: integer
+      articlepickupcharges:
+        type: number
+      articlestate:
+        type: string
+      articletype:
+        type: string
+      assigneddatetime:
+        type: string
+      authorisedby:
+        type: string
+      authorisedon:
+        type: string
+      barcodenumber:
+        type: string
+      basetariff:
+        type: number
+      bkgtransactionid:
+        type: string
+      bkgtype:
+        type: string
+      bookingchannel:
+        type: string
+      cgst:
+        type: number
+      chargedweight:
+        type: number
+      consignmentvalue:
+        type: integer
+      contenttype:
+        type: string
+      contractnumber:
+        description: Customerid          string `json:"customerid"`
+        type: string
+      createdby:
+        type: string
+      createddatetime:
+        type: string
+      createdon:
+        type: string
+      cusbrokeraddress:
+        type: string
+      cusbrokerlicno:
+        type: string
+      cusbrokername:
+        type: string
+      customerdacpickup:
+        description: |-
+          Createddatetime           time.Time `json:"createddatetime"`
+          Modifieddatetime          time.Time `json:"modifieddatetime"`
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        type: string
+      customername:
+        description: Customername              null.String `json:"customername"`
+        type: string
+      declaration1:
+        type: string
+      declaration4:
+        type: string
+      declaration23:
+        type: string
+      destinationcountrycode:
+        type: integer
+      dimensionbreadth:
+        type: number
+      dimensionheight:
+        type: number
+      dimensionlength:
+        type: number
+      domesticforeignidentifier:
+        type: string
+      doordeliverycharges:
+        description: |-
+          Valueinsurance      float64 `json:"valueinsurance"`
+          Valueforvpcod       float64 `json:"valueforvpcod"`
+        type: number
+      droplocation:
+        type: string
+      facilityid:
+        type: string
+      gstn:
+        type: string
+      ibccode:
+        type: string
+      instructionsrts:
+        type: string
+      insuranceflag:
+        type: boolean
+      insurancetype:
+        type: string
+      intlid:
+        type: integer
+      iscod:
+        type: boolean
+      isparcel:
+        type: boolean
+      isparcelpacking:
+        type: boolean
+      ispremailing:
+        type: boolean
+      isprepaid:
+        type: boolean
+      lut:
+        type: string
+      mailclass:
+        type: string
+      mailexporttype:
+        type: string
+      mailform:
+        type: string
+      mailservicetypecode:
+        type: string
+      modeofpayment:
+        type: string
+      modifieddatetime:
+        type: string
+      origincountrycode:
+        type: integer
+      othercharges:
+        type: number
+      packingfee:
+        type: number
+      paidamount:
+        type: number
+      paymentdatetime:
+        description: |-
+          Modeofpayment   string    `json:"modeofpayment"`
+          Paymentstatus   string    `json:"paymentstatus"`
+        type: string
+      paymentid:
+        type: integer
+      paymentstatus:
+        type: string
+      paymenttranid:
+        type: string
+      paymenttype:
+        description: |-
+          PAYMENT
+          Paymenttranid   string    `json:"paymenttranid"`
+          Pickuprequestid int       `json:"pickuprequestid"`
+          Articleid       string    `json:"articleid"`
+        type: string
+      pbefilingtype:
+        type: string
+      physicalweight:
+        type: number
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupcharges:
+        type: number
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickupflag:
+        type: boolean
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickuprequestid:
+        description: pickupmain
+        type: integer
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+      postage:
+        type: number
+      prepaymenttype:
+        type: string
+      registrationfee:
+        type: number
+      reqipaddress:
+        type: string
+      selffilingcusbroker:
+        type: string
+      sgst:
+        type: number
+      shape:
+        type: string
+      status:
+        type: string
+      subpieces:
+        items:
+          $ref: '#/definitions/handler.SubPieceResponse'
+        type: array
+      tariffid:
+        type: integer
+      tax:
+        type: number
+      totalamount:
+        description: "//SUBPEICE//\n\t\tSubid int `json:\"subid\"`\n\t\t//Intlid                              int
+          \      `json:\"intlid\"`\n\t\tIdentifierpieceid                   int       `json:\"identifierpieceid\"`\n\t\tSubpiececatproductcode
+          \             string    `json:\"subpiececatproductcode\"`\n\t\tHscode                              string
+          \   `json:\"hscode\"`\n\t\tProductcustomstariffhead            string    `json:\"productcustomstariffhead\"`\n\t\tProductdescription
+          \                 string    `json:\"productdescription\"`\n\t\tIsocodefororigincountry
+          \            string    `json:\"isocodefororigincountry\"`\n\t\tUnitforsubpiecequantity
+          \            string    `json:\"unitforsubpiecequantity\"`\n\t\tSubpiecequantitycount
+          \              string    `json:\"subpiecequantitycount\"`\n\t\tProducttotalvalueasperinvoice
+          \      string    `json:\"producttotalvalueasperinvoice\"`\n\t\tIsocodeforcurrency
+          \                 string    `json:\"isocodeforcurrency\"`\n\t\tSubpieceweight
+          \                     string    `json:\"subpieceweight\"`\n\t\tSubpieceweightnett
+          \                 string    `json:\"subpieceweightnett\"`\n\t\tProductinvoicenumber
+          \               string    `json:\"productinvoicenumber\"`\n\t\tProductinvoicedate
+          \                 time.Time `json:\"productinvoicedate\"`\n\t\tStatusforecommerce
+          \                 string    `json:\"statusforecommerce\"`\n\t\tUrlforecommerceconsignment
+          \         string    `json:\"urlforecommerceconsignment\"`\n\t\tEcommercepaymenttransactionid
+          \      string    `json:\"ecommercepaymenttransactionid\"`\n\t\tEcommerceskuno
+          \                     string    `json:\"ecommerceskuno\"`\n\t\tTaxinvoicenumber
+          \                   string    `json:\"taxinvoicenumber\"`\n\t\tTaxinvoicedate
+          \                     time.Time `json:\"taxinvoicedate\"`\n\t\tSerialnumberforsubpieceintaxinvoice
+          string    `json:\"serialnumberforsubpieceintaxinvoice\"`\n\t\tValueofsubpieceaspertaxinvoice
+          \     float64   `json:\"valueofsubpieceaspertaxinvoice\"`\n\t\tAssessablefreeonboardvalue
+          \         float64   `json:\"assessablefreeonboardvalue\"`\n\t\tIsocodeforassessablecurrency
+          \       string    `json:\"isocodeforassessablecurrency\"`\n\t\tExchangerateforasblcurr
+          \            float64   `json:\"exchangerateforasblcurr\"`\n\t\tAssessableamount
+          \                   float64   `json:\"assessableamount\"`\n\t\tRateforexportduty
+          \                  float64   `json:\"rateforexportduty\"`\n\t\tExportdutyamount
+          \                   float64   `json:\"exportdutyamount\"`\n\t\tRateforcess
+          \                        float64   `json:\"rateforcess\"`\n\t\tCessamount
+          \                         float64   `json:\"cessamount\"`\n\t\tIgstrate
+          \                           float64   `json:\"igstrate\"`\n\t\tIgstamount
+          \                         float64   `json:\"igstamount\"`\n\t\tCompensationrate
+          \                   float64   `json:\"compensationrate\"`\n\t\tCompensationamount
+          \                 float64   `json:\"compensationamount\"`\n\t\tDetailsofletterofundertakingorbond
+          \ bool      `json:\"detailsofletterofundertakingorbond\"`\n\t\t//Modeofpayment
+          \                      string    `json:\"modeofpayment\"`\n\t\tPaymenttransactionid
+          string `json:\"paymenttransactionid\"`\n\t\t//Createdon                           time.Time
+          `json:\"createdon\"`\n\t\t//Createdby                           string    `json:\"createdby\"`\n\t\t//Updatedon
+          \                          time.Time `json:\"updatedon\"`\n\t\t//Updatedby
+          \                          string    `json:\"updatedby\"`\n\t\t//Authorisedon
+          \                       time.Time `json:\"authorisedon\"`\n\t\t//Authorisedby
+          \                       string    `json:\"authorisedby\"`\n\t\t//Facilityid
+          \                         string    `json:\"facilityid\"`\n\t\tIpaddress
+          \         string `json:\"ipaddress\"`\n\t\tBookingchanneltype string `json:\"bookingchanneltype\"`\n\nTARIFF//\nPickuprequestid
+          \    int     `json:\"pickuprequestid\"`\nArticleid           string  `json:\"articleid\"`"
+        type: number
+      totaltariff:
+        type: number
+      updatedby:
+        type: string
+      updatedon:
+        type: string
+      valueforvpcod:
+        type: number
+      valueinsurance:
+        type: number
+      valueofprepayment:
+        type: number
+      volumetricweight:
+        type: number
+      vpcodflag:
+        type: boolean
+    type: object
+  handler.SubPieceResponse:
+    properties:
+      assessableamount:
+        type: number
+      assessablefreeonboardvalue:
+        type: number
+      authorisedby:
+        type: string
+      authorisedon:
+        type: string
+      bookingchanneltype:
+        type: string
+      cessamount:
+        type: number
+      compensationamount:
+        type: number
+      compensationrate:
+        type: number
+      createdby:
+        type: string
+      createdon:
+        type: string
+      detailsofletterofundertakingorbond:
+        type: boolean
+      ecommercepaymenttransactionid:
+        type: string
+      ecommerceskuno:
+        type: string
+      exchangerateforasblcurr:
+        type: number
+      exportdutyamount:
+        type: number
+      facilityid:
+        type: string
+      hscode:
+        type: string
+      identifierpieceid:
+        type: integer
+      igstamount:
+        type: number
+      igstrate:
+        type: number
+      intlid:
+        description: Subid                               int       `json:"subid"`
+        type: integer
+      ipaddress:
+        type: string
+      isocodeforassessablecurrency:
+        type: string
+      isocodeforcurrency:
+        type: string
+      isocodefororigincountry:
+        type: string
+      modeofpayment:
+        type: string
+      paymenttransactionid:
+        type: string
+      productcustomstariffhead:
+        type: string
+      productdescription:
+        type: string
+      productinvoicedate:
+        type: string
+      productinvoicenumber:
+        type: string
+      producttotalvalueasperinvoice:
+        type: string
+      rateforcess:
+        type: number
+      rateforexportduty:
+        type: number
+      serialnumberforsubpieceintaxinvoice:
+        type: string
+      statusforecommerce:
+        type: string
+      subpiececatproductcode:
+        type: string
+      subpiecequantitycount:
+        type: string
+      subpieceweight:
+        type: string
+      subpieceweightnett:
+        type: string
+      taxinvoicedate:
+        type: string
+      taxinvoicenumber:
+        type: string
+      unitforsubpiecequantity:
+        type: string
+      updatedby:
+        type: string
+      updatedon:
+        type: string
+      urlforecommerceconsignment:
+        type: string
+      valueofsubpieceaspertaxinvoice:
+        type: number
+    type: object
+  handler.UnassignedDom:
+    properties:
+      customermobilenumber:
+        type: string
+      customername:
+        description: Customername         null.String `json:"customername"`
+        type: string
+      physicalweight:
+        type: number
+      pickupaddress:
+        type: string
+      pickuprequestid:
+        type: integer
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      volumetricweight:
+        type: number
+    type: object
+  handler.createAddress:
+    properties:
+      addressline1:
+        type: string
+      addressline2:
+        type: string
+      addresstype:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      customerid:
+        type: string
+      emailid:
+        type: string
+      firstname:
+        type: string
+      fromtopickup:
+        type: string
+      geocode:
+        type: string
+      isverified:
+        type: boolean
+      landmark:
+        type: string
+      lastname:
+        type: string
+      mobilenumber:
+        type: string
+      pincode:
+        type: string
+      state:
+        type: string
+    required:
+    - addressline1
+    - addressline2
+    - addresstype
+    - city
+    - country
+    - customerid
+    - emailid
+    - firstname
+    - fromtopickup
+    - geocode
+    - isverified
+    - landmark
+    - lastname
+    - mobilenumber
+    - pincode
+    - state
+    type: object
+  handler.createBulkPickupmain:
+    properties:
+      actualpickupdatetime:
+        type: string
+      assigneddatetime:
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        type: string
+      customername:
+        description: |-
+          Customername              sql.NullString `json:"customername" validate:"required"`
+          Customername         null.String `json:"customername" validate:"required"`
+        type: string
+      domesticforeignidentifier:
+        enum:
+        - domestic
+        - international
+        type: string
+      droplocation:
+        type: string
+      paymentstatus:
+        type: string
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        description: Pickupstatus              string    `json:"pickupstatus" validate:"omitempty,required"`
+        enum:
+        - Unassigned
+        - Assigned
+        - Pickedup
+        - Cancelled
+        type: string
+    required:
+    - actualpickupdatetime
+    - customerid
+    - customermobilenumber
+    - customername
+    - domesticforeignidentifier
+    - droplocation
+    - paymentstatus
+    - pickupaddress
+    - pickupdroptype
+    - pickupfacilityid
+    - pickuplat
+    - pickuplocation
+    - pickuplong
+    - pickuprequestedpincode
+    - pickupscheduledate
+    - pickupscheduleslot
+    - pickupstatus
+    type: object
+  handler.createPickupmain:
+    properties:
+      actualpickupdatetime:
+        type: string
+      assigneddatetime:
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        description: Customername         pgtype.Text `json:"customername" validate:"required"`
+        type: string
+      customername:
+        description: |-
+          Customername              sql.NullString `json:"customername" validate:"required"`
+          Customername         null.String `json:"customername" validate:"required"`
+          Customername         pgtype.NullString `json:"customername" validate:"required"`
+          Customername null.String `json:"customername" validate:"required"`
+        type: string
+      domesticforeignidentifier:
+        type: string
+      droplocation:
+        type: string
+      paymentstatus:
+        type: string
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+    required:
+    - actualpickupdatetime
+    - customerid
+    - customermobilenumber
+    - customername
+    - domesticforeignidentifier
+    - droplocation
+    - paymentstatus
+    - pickupaddress
+    - pickupdroptype
+    - pickupfacilityid
+    - pickuplat
+    - pickuplocation
+    - pickuplong
+    - pickuprequestedpincode
+    - pickupscheduledate
+    - pickupscheduleslot
+    - pickupstatus
+    type: object
+  handler.errorValidResponse:
+    properties:
+      errorno:
+        items:
+          type: string
+        type: array
+      message:
+        example:
+        - Error message
+        items:
+          type: string
+        type: array
+      success:
+        example: false
+        type: boolean
+    type: object
+  handler.pickupscheduleslotsResponse:
+    properties:
+      pickupscheduleslotid:
+        type: integer
+      scheduleslot:
+        type: string
+    type: object
+  handler.updateAddressDetails:
+    properties:
+      addressline1:
+        minLength: 1
+        type: string
+      addressline2:
+        minLength: 1
+        type: string
+      addresstype:
+        minLength: 1
+        type: string
+      city:
+        minLength: 1
+        type: string
+      country:
+        minLength: 1
+        type: string
+      customerid:
+        minLength: 1
+        type: string
+      emailid:
+        minLength: 1
+        type: string
+      firstname:
+        minLength: 1
+        type: string
+      fromtopickup:
+        minLength: 1
+        type: string
+      geocode:
+        minLength: 1
+        type: string
+      isverified:
+        type: boolean
+      landmark:
+        minLength: 1
+        type: string
+      lastname:
+        minLength: 1
+        type: string
+      mobilenumber:
+        minLength: 1
+        type: string
+      pincode:
+        minLength: 1
+        type: string
+      state:
+        minLength: 1
+        type: string
+    required:
+    - addressline1
+    - addressline2
+    - addresstype
+    - city
+    - country
+    - customerid
+    - emailid
+    - firstname
+    - fromtopickup
+    - geocode
+    - isverified
+    - landmark
+    - lastname
+    - mobilenumber
+    - pincode
+    - state
+    type: object
+  handler.updatepickuprequest:
+    properties:
+      acknowledgementpod:
+        type: boolean
+      ackorpodfee:
+        type: number
+      actualpickupdatetime:
+        type: string
+      adcode:
+        type: string
+      addressrefreceiver:
+        type: string
+      addressrefreceiveraktaddr:
+        type: string
+      addressrefsender:
+        type: string
+      addressrefsenderaltaddr:
+        type: string
+      addresstype:
+        type: string
+      articlecontent:
+        type: string
+      articleid:
+        description: domestic //
+        type: string
+      articleimageid:
+        type: integer
+      articlepickupcharges:
+        type: number
+      articlestate:
+        type: string
+      articletype:
+        type: string
+      assessableamount:
+        type: number
+      assessablefreeonboardvalue:
+        type: number
+      assigneddatetime:
+        type: string
+      authorisedby:
+        type: string
+      authorisedon:
+        type: string
+      barcodenumber:
+        type: string
+      basetariff:
+        type: number
+      bkgtransactionid:
+        type: string
+      bkgtype:
+        type: string
+      bookingchannel:
+        type: string
+      bookingchanneltype:
+        type: string
+      cessamount:
+        type: number
+      cgst:
+        type: number
+      chargedweight:
+        type: number
+      compensationamount:
+        type: number
+      compensationrate:
+        type: number
+      consignmentvalue:
+        description: |-
+          Shape                     string    `json:"shape"`
+          Dimensionlength           float64   `json:"dimensionlength"`
+          Dimensionbreadth          float64   `json:"dimensionbreadth"`
+          Dimensionheight           float64   `json:"dimensionheight"`
+          Volumetricweight          float64   `json:"volumetricweight"`
+          Chargedweight             float64   `json:"chargedweight"`
+          Mailservicetypecode       string    `json:"mailservicetypecode"`
+          Bkgtype                   string    `json:"bkgtype"`
+          Mailform                  string    `json:"mailform"`
+          Isprepaid                 bool      `json:"isprepaid"`
+          Prepaymenttype            string    `json:"prepaymenttype"`
+          Valueofprepayment         float64   `json:"valueofprepayment"`
+          Vpcodflag                 bool      `json:"vpcodflag"`
+          Valueforvpcod             float64   `json:"valueforvpcod"`
+          Insuranceflag             bool      `json:"insuranceflag"`
+          Insurancetype             string    `json:"insurancetype"`
+          Valueinsurance            float64   `json:"valueinsurance"`
+          Acknowledgementpod        bool      `json:"acknowledgementpod"`
+          Instructionsrts           string    `json:"instructionsrts"`
+          Addressrefsender          string    `json:"addressrefsender"`
+          Addressrefreceiver        string    `json:"addressrefreceiver"`
+          Addressrefsenderaltaddr   string    `json:"addressrefsenderaltaddr"`
+          Addressrefreceiveraktaddr string    `json:"addressrefreceiveraktaddr"`
+          Barcodenumber             string    `json:"barcodenumber"`
+          Pickupflag                bool      `json:"pickupflag"`
+          Basetariff                float64   `json:"basetariff"`
+          Tax                       float64   `json:"tax"`
+          Totaltariff               float64   `json:"totaltariff"`
+          Modeofpayment             string    `json:"modeofpayment"`
+          Paymenttranid             string    `json:"paymenttranid"`
+          Status                    string    `json:"status"`
+          Createdon                 time.Time `json:"createdon"`
+          Createdby                 string    `json:"createdby"`
+          Updatedon                 time.Time `json:"updatedon"`
+          Updatedby                 string    `json:"updatedby"`
+          Authorisedon              time.Time `json:"authorisedon"`
+          Authorisedby              string    `json:"authorisedby"`
+          Facilityid                string    `json:"facilityid"`
+          Reqipaddress              string    `json:"reqipaddress"`
+          Bookingchannel            string    `json:"bookingchannel"`
+        type: integer
+      contenttype:
+        type: string
+      contractnumber:
+        description: Customerid                string    `json:"customerid"`
+        type: string
+      createdby:
+        type: string
+      createddatetime:
+        type: string
+      createdon:
+        type: string
+      cusbrokeraddress:
+        type: string
+      cusbrokerlicno:
+        type: string
+      cusbrokername:
+        type: string
+      customerdacpickup:
+        type: string
+      customerid:
+        type: string
+      customermobilenumber:
+        type: string
+      customername:
+        description: Customername              null.String `json:"customername"`
+        type: string
+      declaration1:
+        type: string
+      declaration4:
+        type: string
+      declaration23:
+        type: string
+      destinationcountrycode:
+        type: integer
+      destinationpin:
+        type: integer
+      detailsofletterofundertakingorbond:
+        type: boolean
+      dimensionbreadth:
+        type: number
+      dimensionheight:
+        type: number
+      dimensionlength:
+        type: number
+      domesticforeignidentifier:
+        type: string
+      doordeliverycharges:
+        description: |-
+          Valueinsurance      float64 `json:"valueinsurance"`
+          Valueforvpcod       float64 `json:"valueforvpcod"`
+        type: number
+      droplocation:
+        type: string
+      ecommercepaymenttransactionid:
+        type: string
+      ecommerceskuno:
+        type: string
+      exchangerateforasblcurr:
+        type: number
+      exportdutyamount:
+        type: number
+      facilityid:
+        type: string
+      gstn:
+        description: |-
+          Customerid                string    `json:"customerid"`
+          Contractnumber            string    `json:"contractnumber"`
+        type: string
+      hscode:
+        type: string
+      ibccode:
+        type: string
+      identifierpieceid:
+        type: integer
+      igstamount:
+        type: number
+      igstrate:
+        type: number
+      instructionsrts:
+        type: string
+      insuranceflag:
+        type: boolean
+      insurancetype:
+        type: string
+      ipaddress:
+        description: |-
+          Createdon                           time.Time `json:"createdon"`
+          Createdby                           string    `json:"createdby"`
+          Updatedon                           time.Time `json:"updatedon"`
+          Updatedby                           string    `json:"updatedby"`
+          Authorisedon                        time.Time `json:"authorisedon"`
+          Authorisedby                        string    `json:"authorisedby"`
+          Facilityid                          string    `json:"facilityid"`
+        type: string
+      iscod:
+        type: boolean
+      isocodeforassessablecurrency:
+        type: string
+      isocodeforcurrency:
+        type: string
+      isocodefororigincountry:
+        type: string
+      isparcel:
+        type: boolean
+      isparcelpacking:
+        type: boolean
+      ispremailing:
+        type: boolean
+      isprepaid:
+        type: boolean
+      lut:
+        type: string
+      mailclass:
+        description: Physicalweight            float64   `json:"physicalweight"`
+        type: string
+      mailexporttype:
+        type: string
+      mailform:
+        type: string
+      mailservicetypecode:
+        type: string
+      modeofpayment:
+        type: string
+      modifieddatetime:
+        type: string
+      origincountrycode:
+        description: |-
+          INTERNNATIONAL //
+          Pickuprequestid           int       `json:"pickuprequestid"`
+          Articleid                 string    `json:"articleid"`
+          Articlestate              string    `json:"articlestate"`
+          Articletype               string    `json:"articletype"`
+          Articlecontent            string    `json:"articlecontent"`
+          Articleimageid            int       `json:"articleimageid"`
+          Articlepickupcharges      float64   `json:"articlepickupcharges"`
+          Ispremailing              bool      `json:"ispremailing"`
+          Isparcelpacking           bool      `json:"isparcelpacking"`
+          Createddatetime           time.Time `json:"createddatetime"`
+          Modifieddatetime          time.Time `json:"modifieddatetime"`
+          Customerdacpickup         string    `json:"customerdacpickup"`
+          Addresstype               string    `json:"addresstype"`
+          Bkgtransactionid          string    `json:"bkgtransactionid"`
+        type: integer
+      originpin:
+        type: integer
+      othercharges:
+        type: number
+      packingfee:
+        type: number
+      paidamount:
+        type: number
+      paymentdatetime:
+        description: |-
+          Modeofpayment   string    `json:"modeofpayment"`
+          Paymentstatus   string    `json:"paymentstatus"`
+        type: string
+      paymentstatus:
+        type: string
+      paymenttranid:
+        type: string
+      paymenttransactionid:
+        description: Modeofpayment                       string    `json:"modeofpayment"`
+        type: string
+      paymenttype:
+        description: |-
+          paymentdetails//
+          Paymenttranid   string    `json:"paymenttranid"`
+          Pickuprequestid int       `json:"pickuprequestid"`
+          Articleid       string    `json:"articleid"`
+        type: string
+      pbefilingtype:
+        type: string
+      physicalweight:
+        type: number
+      pickupaddress:
+        type: string
+      pickupagentid:
+        type: integer
+      pickupcharges:
+        type: number
+      pickupdroptype:
+        type: string
+      pickupfacilityid:
+        type: string
+      pickupflag:
+        type: boolean
+      pickuplat:
+        type: string
+      pickuplocation:
+        type: string
+      pickuplong:
+        type: string
+      pickuprequestedpincode:
+        type: string
+      pickupscheduledate:
+        type: string
+      pickupscheduleslot:
+        type: string
+      pickupstatus:
+        type: string
+      postage:
+        type: number
+      prepaymenttype:
+        type: string
+      productcustomstariffhead:
+        type: string
+      productdescription:
+        type: string
+      productinvoicedate:
+        type: string
+      productinvoicenumber:
+        type: string
+      producttotalvalueasperinvoice:
+        type: string
+      rateforcess:
+        type: number
+      rateforexportduty:
+        type: number
+      registrationfee:
+        type: number
+      reqipaddress:
+        type: string
+      selffilingcusbroker:
+        type: string
+      serialnumberforsubpieceintaxinvoice:
+        type: string
+      sgst:
+        type: number
+      shape:
+        type: string
+      status:
+        type: string
+      statusforecommerce:
+        type: string
+      subid:
+        description: |-
+          subpiecedetails//
+          Intlid                              int       `json:"intlid"`
+          adding subid
+        type: integer
+      subpiececatproductcode:
+        type: string
+      subpiecequantitycount:
+        type: string
+      subpieceweight:
+        type: string
+      subpieceweightnett:
+        type: string
+      tax:
+        type: number
+      taxinvoicedate:
+        type: string
+      taxinvoicenumber:
+        type: string
+      totalamount:
+        description: tarriffdetails//
+        type: number
+      totaltariff:
+        type: number
+      unitforsubpiecequantity:
+        type: string
+      updatedby:
+        type: string
+      updatedon:
+        type: string
+      urlforecommerceconsignment:
+        type: string
+      valueforvpcod:
+        type: number
+      valueinsurance:
+        type: number
+      valueofprepayment:
+        type: number
+      valueofsubpieceaspertaxinvoice:
+        type: number
+      volumetricweight:
+        type: number
+      vpcodflag:
+        type: boolean
+    type: object
+  handler.uploadimage:
+    properties:
+      filename:
+        description: '`json:"filename"`'
+        type: string
+      mimetype:
+        description: '`json:"mimetype"`'
+        type: string
+      pickuprequestid:
+        type: integer
+      size:
+        description: '`json:"size"`'
+        type: integer
+    required:
+    - pickuprequestid
+    type: object
+host: localhost:3030
+info:
+  contact: {}
+  description: This is a  Demo Template API with Swagger documentation
+  version: "1.0"
+paths:
+  /addressdetails/:
+    post:
+      consumes:
+      - application/json
+      description: create a new address  for a customer
+      parameters:
+      - description: Create address request
+        in: body
+        name: createAddress
+        required: true
+        schema:
+          $ref: '#/definitions/handler.createAddress'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: address created
+          schema:
+            $ref: '#/definitions/handler.AddressdetailsResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Create a new address for a customer
+      tags:
+      - Addressdetails
+  /addressdetails/{addressid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a address based on addressid
+      parameters:
+      - description: addressid
+        in: path
+        name: addressid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Address deleted succesfully
+          schema:
+            type: string
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Delete a address
+      tags:
+      - Addressdetails
+    put:
+      consumes:
+      - application/json
+      description: update a address's based on addressid
+      parameters:
+      - description: update address
+        in: path
+        name: addressid
+        required: true
+        type: integer
+      - description: updateAddressDetails
+        in: body
+        name: updateAddressDetails
+        required: true
+        schema:
+          $ref: '#/definitions/handler.updateAddressDetails'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category updated
+          schema:
+            $ref: '#/definitions/handler.AddressdetailsResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Update a address
+      tags:
+      - Addressdetails
+  /addressdetails/{customerid}:
+    get:
+      consumes:
+      - application/json
+      description: get a address by customerid
+      parameters:
+      - description: Customerid ID
+        in: path
+        name: customerid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category retrieved
+          schema:
+            $ref: '#/definitions/handler.AddressdetailsResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a address
+      tags:
+      - Addressdetails
+  /addresstypelist/:
+    get:
+      consumes:
+      - application/json
+      description: Get a Addresstypelist
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Addresstype list retrieved
+          schema:
+            $ref: '#/definitions/domain.Addresstype'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a Addresstypelist
+      tags:
+      - Common
+  /cancel/{pickuprequestid}:
+    put:
+      consumes:
+      - application/json
+      description: cancel a pickup request based on pickuprequestid
+      parameters:
+      - description: cancel pickuprequest
+        in: path
+        name: pickuprequestid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickuprequest Cancelled successfully
+          schema:
+            type: string
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: cancel a pickup request
+      tags:
+      - Pickuprequest
+  /dashboard/Assigned/{facilityid}:
+    get:
+      consumes:
+      - application/json
+      description: Get the Assigned pickuprequest based on facilityid
+      parameters:
+      - description: Pickupfacilityid
+        in: path
+        name: facilityid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the Assigned pickuprequest based on facilityid
+      tags:
+      - Dashboard
+  /dashboard/Unassigned/{facilityid}:
+    get:
+      consumes:
+      - application/json
+      description: Get the Unassigned pickuprequest based on facilityid
+      parameters:
+      - description: Pickupfacilityid
+        in: path
+        name: facilityid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Unassigned retrieved
+          schema:
+            $ref: '#/definitions/handler.UnassignedDom'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the Unassigned pickuprequest based on facilityid
+      tags:
+      - Dashboard
+  /dashboard/count/{facilityid}:
+    get:
+      consumes:
+      - application/json
+      description: Get the count of unassigned , assigned , pickedup , cancelled ,
+        total sum based on facilityid
+      parameters:
+      - description: Pickupfacilityid
+        in: path
+        name: facilityid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: count retrieved
+          schema:
+            $ref: '#/definitions/handler.CountApiResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the count of unassigned , assigned , pickedup , cancelled , total
+        sum based on facilityid
+      tags:
+      - Dashboard
+  /dashboard/customerpickuprequests/{customerid}:
+    get:
+      consumes:
+      - application/json
+      description: Get the pickuprequest raised by the customer
+      parameters:
+      - description: Customerid
+        in: path
+        name: customerid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Unassigned retrieved
+          schema:
+            $ref: '#/definitions/handler.PickuprequestBasiccus'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the pickuprequest raised by the custoner
+      tags:
+      - Dashboard
+  /dashboard/getpickuprequest/{pickupagentid}:
+    get:
+      consumes:
+      - application/json
+      description: Get the pickuprequest assigned to the pickupagent
+      parameters:
+      - description: Pickupagentid
+        in: path
+        name: pickupagentid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the pickuprequest assigned to the pickupagent
+      tags:
+      - Dashboard
+  /dashboard/pickuprequest/{facilityid}:
+    get:
+      responses:
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+  /dashboard/pickuprequests/{pincode}:
+    get:
+      consumes:
+      - application/json
+      description: Get the pickuprequest based on pincode
+      parameters:
+      - description: Pickuprequestedpincode
+        in: path
+        name: pincode
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get the pickuprequest based on pincode
+      tags:
+      - Dashboard
+  /getdetails/{pickuprequestid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a Pickuprequestdetails
+      parameters:
+      - description: Pickuprequestid
+        in: path
+        name: pickuprequestid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category retrieved
+          schema:
+            $ref: '#/definitions/handler.RaisedPickupRequestResponseDom'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a Pickuprequestdetails
+      tags:
+      - Pickuprequest
+  /image/:
+    post:
+      consumes:
+      - application/json
+      description: Capture the image of the open pickuprequest
+      parameters:
+      - description: uploadimage
+        in: body
+        name: uploadimage
+        required: true
+        schema:
+          $ref: '#/definitions/handler.uploadimage'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: image captured
+          schema:
+            $ref: '#/definitions/handler.ImageResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Capture the image of the open pickuprequest
+      tags:
+      - Image
+  /image/{imageid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a image based on imageid
+      parameters:
+      - description: Imageid
+        in: path
+        name: imageid
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category retrieved
+          schema:
+            $ref: '#/definitions/handler.ImageResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a image based on imageid
+      tags:
+      - Image
+  /pickupagentlist/:
+    get:
+      consumes:
+      - application/json
+      description: Get a PickupagentList
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickupagent list retrieved
+          schema:
+            $ref: '#/definitions/domain.Pickupagent'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a PickupagentList
+      tags:
+      - Common
+  /pickupmain/assigning:
+    put:
+      consumes:
+      - application/json
+      description: Assiging pickuprequest to pickupagent
+      parameters:
+      - description: Assigning
+        in: body
+        name: Assigning
+        required: true
+        schema:
+          $ref: '#/definitions/handler.Assigning'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickup requests assigned successfully
+          schema:
+            type: string
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Assiging pickuprequest to pickupagent
+      tags:
+      - Pickupmain
+  /pickupmain/bulk:
+    post:
+      consumes:
+      - application/json
+      description: Insert Bulk data into Pickupmain
+      parameters:
+      - description: createBulkPickupmain
+        in: body
+        name: createBulkPickupmain
+        required: true
+        schema:
+          $ref: '#/definitions/handler.createBulkPickupmain'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickupmain created
+          schema:
+            $ref: '#/definitions/handler.PickupmainResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Insert Bulk data into Pickupmain
+      tags:
+      - Pickupmain
+  /pickupmain/singlereq:
+    post:
+      consumes:
+      - application/json
+      description: Insert data into Pickupmain
+      parameters:
+      - description: createPickupmain
+        in: body
+        name: createPickupmain
+        required: true
+        schema:
+          $ref: '#/definitions/handler.createPickupmain'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickupmain created
+          schema:
+            $ref: '#/definitions/handler.PickupmainResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Insert data into Pickupmain
+      tags:
+      - Pickupmain
+  /pickupscheduleslots/:
+    get:
+      consumes:
+      - application/json
+      description: Get a PickupScheduleslots
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Schedule retrieved
+          schema:
+            $ref: '#/definitions/handler.pickupscheduleslotsResponse'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a PickupScheduleslots
+      tags:
+      - Common
+  /raisepickup/:
+    post:
+      consumes:
+      - application/json
+      description: create a new Pickuprequest
+      parameters:
+      - description: Create address request
+        in: body
+        name: createAddress
+        required: true
+        schema:
+          $ref: '#/definitions/handler.createAddress'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: address created
+          schema:
+            $ref: '#/definitions/handler.RaisedPickupRequestResponseInt1'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Create a new Pickuprequest
+      tags:
+      - Pickuprequest
+  /remarkslist/:
+    get:
+      consumes:
+      - application/json
+      description: Get a Remarks
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Remarks list retrieved
+          schema:
+            $ref: '#/definitions/domain.Remarks'
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Get a Remarks
+      tags:
+      - Common
+  /updatedetails/{pickuprequestid}:
+    put:
+      consumes:
+      - application/json
+      description: update a pickuprequest based on pickuprequestid
+      parameters:
+      - description: update pickuprequest details
+        in: path
+        name: pickuprequestid
+        required: true
+        type: integer
+      - description: updatepickuprequest
+        in: body
+        name: updatepickuprequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.updatepickuprequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pickuprequest details Updated successfully
+          schema:
+            type: string
+        "400":
+          description: Validation error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "403":
+          description: Forbidden error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "404":
+          description: Data not found error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "409":
+          description: Data conflict error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/handler.errorValidResponse'
+      summary: Update a Pickuprequest
+      tags:
+      - Pickuprequest
+swagger: "2.0"

@@ -1,0 +1,36 @@
+AppName: go-pos
+AppEnv: development
+#AppEnv: production
+
+HttpUrl: 127.0.0.1
+HttpAllowedOrigins: "*"
+#loglevel: info
+loglevel: debug
+
+# "host=localhost port=5432 user=postgres dbname=pickuptrail password=babusuma sslmode=disable"
+
+#production 
+DBConnection: postgres
+DBHost: 10.20.30.41  
+DBPort: 5432
+DBdatabase: PICKUPDB
+DBUsername: pavani
+DBPassword: pavani
+HttpPort: 8080
+
+#local
+# DBConnection: postgres
+# DBHost: localhost
+# DBPort: 5432
+# DBdatabase: samplepickup1412
+# DBUsername: postgres
+# DBPassword: babusuma
+# HttpPort: 3030
+
+
+RedisServer: localhost:6379
+RedisPassword: 
+TokenSymmetricKey: 12345678901234567890123456789012
+TokenDuration: 15m
+ShutDownTime: 1ms
+ShutDowntype: 
